@@ -1,0 +1,91 @@
+\tikzstyle{my-box}= [
+    rectangle,
+    draw=hidden-draw,
+    rounded corners,
+    text opacity=1,
+    minimum height=1.5em,
+    minimum width=6em,
+    inner sep=3pt,
+    align=center,
+    fill opacity=.5,
+]
+\tikzstyle{leaf}=[my-box, minimum height=2.5em,
+    fill=green!15, text=black, align=left,font=\small,
+    inner xsep=2pt,
+    inner ysep=4pt,
+]
+
+\begin{figure*}[ht]
+    \centering
+    %\hspace{-3.8cm}  % Moves the plot 2cm to the left
+    \resizebox{1\textwidth}{!}{
+        \begin{forest}
+            forked edges,
+            for tree={
+                grow=east,
+                reversed=true,
+                anchor=base west,
+                parent anchor=east,
+                child anchor=west,
+                base=left,
+                font=\small,
+                rectangle,
+                draw=hidden-draw,
+                rounded corners,
+                align=left,
+                minimum width=4em,
+                edge+={darkgray, line width=1pt},
+                s sep=3pt,
+                inner xsep=2pt,
+                inner ysep=3pt,
+                ver/.style={rotate=90, child anchor=north, parent anchor=south, anchor=center},
+            },
+            where level=1{text width=8.0em,font=\small,}{},
+            where level=2{text width=10.0em,font=\small,}{},
+            where level=3{text width=8.0em,font=\small,}{},
+            where level=4{text width=8.0em,font=\small,}{},
+            [Improvements, ver
+                [01 Approaches, text centered
+                    [A methods, text centered
+                        [ 1, 2, leaf, text width=42em]
+                    ]
+                    [B methods, text centered
+                        [ 1, 2, leaf, text width=42em]
+                    ]
+                    [C methods, text centered
+                        [C-1, text centered
+                            [1, 2, leaf, text width=32.5em]
+                        ]
+                        [C-2, text centered
+                            [ 1, 2, leaf, text width=32.5em]
+                        ]
+                    ]
+                    [D methods, text centered
+                        [paper, Papers2, Papers3, leaf, text width=42em]
+                    ]
+                ]
+                [ 02 Approaches, text centered
+                    [A method, text centered
+                        [Papers1, Papers2, Papers3, leaf, text width=42em]
+                    ]
+                    [B method, text centered
+                        [Papers1, Papers2, Papers3, leaf, text width=42em]
+                    ]
+                    [C method, text centered
+                        [Papers1, Papers2, Papers3, leaf, text width=42em]
+                    ]
+                ]
+                [03 Approaches, text centered
+                    [A method, text centered
+                        [Papers1, Papers2, Papers3, leaf, text width=42em]
+                    ]
+                    [B method, text centered
+                        [Papers1, Papers2, Papers3, leaf, text width=42em]
+                    ]
+                ]
+            ]
+        \end{forest}
+    }
+    \caption{Caption to be added}
+    \label{fig:taxonomy}
+\end{figure*}
