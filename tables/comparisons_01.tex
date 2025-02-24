@@ -1,0 +1,52 @@
+% This plot is from the paper: "On the Trustworthiness of Generative Foundation Models: Guideline, Assessment, and Perspective" (Y Huang et al., 2025)
+
+
+
+% Define colors used in the table
+\definecolor{LightCyan}{RGB}{232,241,255}
+\definecolor{LightGray}{RGB}{242,242,242}
+
+% Define commands for check and cross marks
+\newcommand{\checkmarkcolor}{
+    \tikz[baseline=(checkIcon.base)]{
+        \node[draw=gray!30, line width=0.5pt, fill=blue!70!black, rounded corners, inner sep=1.5pt] 
+        (checkIcon) {\textcolor{green}{$\checkmark$}};
+    }
+}
+\newcommand{\xmarkcolor}{%
+  \textcolor{red}{%
+    \begin{tikzpicture}[scale=0.2]
+      \draw[line width=1.5] (0,0) -- (1,1);
+      \draw[line width=1.5] (1,0) -- (0,1);
+    \end{tikzpicture}%
+  }%
+}
+
+\begin{table}[t]
+\small
+\centering
+\setlength{\tabcolsep}{5pt}
+\renewcommand\arraystretch{1.1}
+\caption{Comparison caption.}
+\label{tab:benchhmark_comparison_llm}
+\rowcolors{2}{white}{gray!10!white} 
+\scalebox{0.88}{
+\begin{tabular}{@{}p{3.5cm}<{\centering}%
+                p{0.8cm}<{\centering}p{0.8cm}<{\centering}p{0.8cm}<{\centering}%
+                p{0.8cm}<{\centering}p{0.8cm}<{\centering}p{0.8cm}<{\centering}%
+                p{0.8cm}<{\centering}|%
+                p{0.8cm}<{\centering}p{0.8cm}<{\centering}p{0.8cm}<{\centering}|%
+                p{0.8cm}<{\centering}p{0.8cm}<{\centering}p{0.8cm}<{\centering}@{}}
+\toprule[1.5pt]
+\textbf{Aspect} & \rotatebox[origin=c]{90}{\textbf{Truthful.}} & \rotatebox[origin=c]{90}{\textbf{Safety}} & \rotatebox[origin=c]{90}{\textbf{Fair.}} & \rotatebox[origin=c]{90}{\textbf{Robust.}} & \rotatebox[origin=c]{90}{\textbf{Privacy}} & \rotatebox[origin=c]{90}{\textbf{Ethics}} & \rotatebox[origin=c]{90}{\textbf{Advanced.}} & \rotatebox[origin=c]{90}{\textbf{T2I}} & \rotatebox[origin=c]{90}{\textbf{LLM}} & \rotatebox[origin=c]{90}{\textbf{VLM}} & \rotatebox[origin=c]{90}{\textbf{Dynamic.}} & \rotatebox[origin=c]{90}{\textbf{Diverse.}} & \rotatebox[origin=c]{90}{\textbf{Toolkit}} \\ 
+\midrule
+\textbf{\textsc{paper A} }        & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor \\
+\textsc{paper B} \cite{3}  & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \xmarkcolor    & \checkmarkcolor & \xmarkcolor    & \xmarkcolor    & \xmarkcolor    & \checkmarkcolor \\
+paper C \cite{2}              & \xmarkcolor    & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \xmarkcolor    & \xmarkcolor    & \xmarkcolor    & \xmarkcolor    & \checkmarkcolor & \xmarkcolor    & \xmarkcolor    & \xmarkcolor    & \checkmarkcolor \\
+paper D \cite{1}  & \xmarkcolor    & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \checkmarkcolor & \xmarkcolor    & \xmarkcolor    & \checkmarkcolor & \xmarkcolor    & \xmarkcolor    & \xmarkcolor    & \xmarkcolor \\
+
+% ... (remaining rows omitted for brevity; include all rows as needed)
+\bottomrule[1.5pt]
+\end{tabular}}
+\vspace{-15pt}
+\end{table}
