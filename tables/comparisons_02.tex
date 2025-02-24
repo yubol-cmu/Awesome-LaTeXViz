@@ -1,0 +1,136 @@
+% This plot is from the paper: "From Selection to Generation: A Survey of LLM-based Active Learning" (Yu Xia et al., 2025)
+
+%-----------------------------------------------------------
+% Define new column type for centered columns
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+%-----------------------------------------------------------
+% Define colors (using RGB or HTML formats)
+\definecolor{verylightgreennew}{RGB}{220,255,220}
+\definecolor{verylightrednew}{RGB}{255,230,230}
+\definecolor{verylightreddarker}{HTML}{FFCBCB}
+\definecolor{verylightrednewlighter}{RGB}{255,229,239}
+\definecolor{lightgraynew}{rgb}{0.95,0.95,0.95}
+\definecolor{newgray}{RGB}{77,77,77} % 0.3*255 ≈ 77
+\definecolor{greencm}{RGB}{0,153,0}
+\definecolor{googleblue}{HTML}{4285F4}
+\definecolor{googlered}{HTML}{DB4437}
+\definecolor{googlegreen}{HTML}{0F9D58}
+% Additional colors:
+\definecolor{googleorange}{HTML}{FBBC05}
+\definecolor{googlepurple}{HTML}{A142F4}
+\definecolor{googlegrey}{HTML}{9AA0A6}
+\definecolor{googleyellow}{HTML}{F4B400}
+
+%-----------------------------------------------------------
+% Cell size definitions
+\newcommand{\cellsz}{0.40cm} 
+\newcommand{\cellszlg}{0.50cm} 
+\newcommand{\cellszsm}{0.40cm} 
+
+%-----------------------------------------------------------
+% Check and cross mark commands
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+% Redefine shorthand commands for table cells
+\renewcommand{\cm}{{\color{greencm}\normalsize\cmark}}
+\renewcommand{\cmgray}{{\color{lightgraynew}\normalsize\cmark}}
+\renewcommand{\xm}{{\color{verylightreddarker}\normalsize\xmark}}
+
+% Spacing rules for vertical alignment in cells
+\newcommand\BBBBB{\rule[1.6ex]{0pt}{1.6ex}}
+\newcommand\BBBnew{\rule[-2.5ex]{0pt}{0pt}}
+\newcommand\BBBBBB{\rule[-1.1ex]{0pt}{0pt}}
+
+% A simple command to render system names (in sans‐serif)
+\newcommand{\sysName}[1]{{\sf #1}}
+
+% Commands to fill a cell with a “yes” or “no” mark and a background color:
+\newcommand{\cellsomewhat}{\BBBBB \cmgray \cellcolor{verylightgreennew}}
+\newcommand{\cellno}{\BBBBB \xm \cellcolor{verylightrednew}}
+\newcommand{\cellyes}{\BBBBB \cm \cellcolor{verylightgreennew}}
+
+\begin{table*}[t!]
+\vspace{3mm}
+\centering
+\def\arraystretch{1.2}
+\scriptsize
+
+% Resize the entire table to the text width
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{P{2mm} l c !{\vrule width 0.8pt} 
+                % Querying group: 3 columns
+                P{\cellszlg} P{\cellszlg} P{\cellszlg} 
+                !{\vrule width 0.6pt} 
+                % Annotation group: 3 columns
+                P{\cellszlg} P{\cellszlg} P{\cellszlg}  
+                !{\vrule width 0.6pt} 
+                % Applications group: 3 columns
+                P{\cellszsm} P{\cellszsm} P{\cellszsm} 
+                !{\vrule width 0.8pt} @{}}
+%------------------------------------------------------------------
+% Header rows
+& & 
+& \multicolumn{3}{c!{\vrule width 0.6pt}}{\textcolor{googleblue}{\textsc{\bfseries\scshape Type A}}} 
+& \multicolumn{3}{c!{\vrule width 0.6pt}}{\textcolor{googleorange}{\textsc{\bfseries\scshape Type B}}} 
+& \multicolumn{3}{c!{\vrule width 0.8pt}}{\textcolor{googlegreen}{\textsc{\bfseries\scshape Type C}}} \\
+& & 
+& \multicolumn{3}{c!{\vrule width 0.6pt}}{(\textbf{Section~\ref{sec:querying}})} 
+& \multicolumn{3}{c!{\vrule width 0.6pt}}{(\textbf{Section~\ref{sec:ann}})} 
+& \multicolumn{3}{c!{\vrule width 0.8pt}}{(\textbf{Section~\ref{sec:apps}})} \\
+& & 
+& \rotatebox{90}{\textbf{Traditional Selection (\S\ref{sec:querying-selection})}} 
+& \rotatebox{90}{\textbf{LLM-based Generation (\S\ref{sec:querying-llm-based-gen})}} 
+& \rotatebox{90}{\textbf{Hybrid (\S\ref{sec:querying-llm-based-selection-and-gen})}} 
+& \rotatebox{90}{\textbf{Human Annotation (\S\ref{sec:ann-human})}} 
+& \rotatebox{90}{\textbf{LLM-based Annotation (\S\ref{sec:ann-llm-based})}}  
+& \rotatebox{90}{\textbf{Hybrid (\S\ref{sec:ann-hybrid-human-and-llm})}} 
+& \rotatebox{90}{\textbf{Text Classification}} 
+& \rotatebox{90}{\textbf{Question Answering}} 
+& \rotatebox{90}{\textbf{Other}} \\
+\noalign{\hrule height 0.8pt}
+%------------------------------------------------------------------
+% Data rows
+% Row for APE
+& \sysName{$\mathsf{\sf \bf APE}$}~\cite{qian2024ape} & 
+& \cellno & \cellyes & \cellno 
+& \cellno & \cellyes & \cellno 
+& \cellno & \cellyes & \cellno \\
+\hline
+% Row for LDCAL
+& \sysName{$\mathsf{\sf \bf LDCAL}$}~\cite{li2024active} & 
+& \cellyes & \cellno & \cellno 
+& \cellyes & \cellno & \cellno 
+& \cellno & \cellyes & \cellno \\
+\hline
+% Row for ActiveLLM
+& \sysName{$\mathsf{\sf \bf ActiveLLM}$}~\cite{bayer2024activellm} & 
+& \cellno & \cellno & \cellno 
+& \cellno & \cellno & \cellno 
+& \cellno & \cellyes & \cellno \\
+\hline
+% Row for ActivePrune
+& \sysName{$\mathsf{\sf \bf ActivePrune}$}~\cite{azeemi2024language} & 
+& \cellyes & \cellno & \cellno 
+& \cellyes & \cellno & \cellno 
+& \cellyes & \cellno & \cellno \\
+\hline
+% Row for AutoLabel
+& \sysName{$\mathsf{\sf \bf AutoLabel}$}~\cite{ming2024autolabel} & 
+& \cellyes & \cellno & \cellno 
+& \cellno & \cellno & \cellyes 
+& \cellno & \cellno & \cellno \\
+\hline
+% Row for LLMaAA
+& \sysName{$\mathsf{\sf \bf LLMaAA}$}~\cite{zhang2023llmaaa} & 
+& \cellyes & \cellno & \cellno 
+& \cellno & \cellyes & \cellno 
+& \cellno & \cellno & \cellyes \\
+\noalign{\hrule height 0.7pt}
+\end{tabular}%
+} % end resizebox
+\caption{Overview caption tbd.}
+\label{table:qual-and-quant-comparison}
+\vspace{-3mm}
+\end{table*}
